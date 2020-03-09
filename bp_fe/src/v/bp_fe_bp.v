@@ -1,15 +1,15 @@
 /*
- *  * bp_fe_bp.v
- *   * 
- *    * Branch Predictor Wrapper
- *     *
- *     */
+ *  bp_fe_bp.v
+ *  
+ *  Branch Predictor Wrapper
+ * 
+ */
 module bp_fe_pb
  import bp_fe_pkg::*; 
    #(parameter bht_idx_width_p     = "inv"
    , localparam els_lp             = 2**bht_idx_width_p
    , localparam saturation_size_lp = 2
-   , localparam BP_TYPE = "always_not_taken"
+   , localparam BP_TYPE = "always_taken"
    )
    ( input                       clk_i
    , input                       reset_i
@@ -29,6 +29,11 @@ if (BP_TYPE == "always_not_taken") begin : branch_predictor_static_always_not_ta
 
   // predict not taken
   assign predict_o = 1'b0;
+
+end else if (BP_TYPE == "always_taken") begin : branch_predictor_static_always_taken
+
+  // predict always taken
+  assign predict_o = 1'b1;
 
 end else begin
 
