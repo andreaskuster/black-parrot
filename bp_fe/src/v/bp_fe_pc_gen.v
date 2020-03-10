@@ -278,9 +278,11 @@ bp_fe_btb
 
 logic bht_pred_lo;
 bp_fe_bp
- #(.bht_idx_width_p(bht_idx_width_p))
- bp_fe_bp
-  (.clk_i(clk_i)
+  #(.bht_idx_width_p(bht_idx_width_p)
+   ,.bp_cnt_sat_bits_p(2)
+   )
+   bp_fe_bp
+   (.clk_i(clk_i)
    ,.reset_i(reset_i)
 
    ,.r_v_i(1'b1)
