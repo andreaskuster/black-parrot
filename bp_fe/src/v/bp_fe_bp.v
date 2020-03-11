@@ -9,7 +9,7 @@ module bp_fe_bp
    #(parameter  bht_idx_width_p    = "inv"
    , parameter  bp_cnt_sat_bits_p  = 2
    , localparam els_lp             = 2**bht_idx_width_p
-   , localparam BP_TYPE = "always_taken"
+   , localparam BP_TYPE            = "bimodal"
    )
    ( input                       clk_i
    , input                       reset_i
