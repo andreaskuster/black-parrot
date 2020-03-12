@@ -9,7 +9,7 @@ module bp_fe_bp
    #(parameter  bht_idx_width_p    = "inv"
    , parameter  bp_cnt_sat_bits_p  = 2
    , localparam els_lp             = 2**bht_idx_width_p
-   , localparam BP_TYPE = "always_taken"
+   , localparam BP_TYPE            = "always_taken"
    )
    ( input                       clk_i
    , input                       reset_i
@@ -34,24 +34,6 @@ end else if (BP_TYPE == "always_taken") begin : branch_predictor_static_always_t
 
   // predict always taken
   assign predict_o = 1'b1;
-
-end else if (BP_TYPE == "bimodal") begin: branch_predictor_dynamic_bimodal
-
-bp_fe_bp_bimodal
-    #(.bht_idx_width_p(bht_idx_width_p),
-      .bp_cnt_sat_bits_p(bp_cnt_sat_bits_p)
-    ) bp
-    ( .clk_i(clk_i)
-    , .reset_i(reset_i)
-
-    , .w_v_i(w_v_i)
-    , .idx_w_i(idx_w_i)
-    , .correct_i(correct_i)
-
-    , .r_v_i(r_v_i)
-    , .idx_r_i(idx_r_i)
-    , .predict_o(predict_o)
-);
 
 end else begin
 
