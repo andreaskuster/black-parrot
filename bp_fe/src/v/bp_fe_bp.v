@@ -92,9 +92,6 @@ bp_fe_bp_gselect
     , .predict_o(predict_o)
 );
 
-
-bp_n_hist
-
 end else begin
 
   // catch unknown branch predictor
