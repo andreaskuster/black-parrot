@@ -8,8 +8,9 @@ module bp_fe_bp
  import bp_fe_pkg::*; 
    #(parameter  bht_idx_width_p    = "inv"
    , parameter  bp_cnt_sat_bits_p  = 2
+   , parameter  bp_n_hist          = 6
    , localparam els_lp             = 2**bht_idx_width_p
-   , localparam BP_TYPE = "gshare"
+   , localparam BP_TYPE = "gselect"
    )
    ( input                       clk_i
    , input                       reset_i
@@ -70,6 +71,29 @@ bp_fe_bp_gshare
     , .idx_r_i(idx_r_i)
     , .predict_o(predict_o)
 );
+
+
+end else if (BP_TYPE == "gshare") begin: branch_predictor_dynamic_gshare
+
+bp_fe_bp_gselect
+    #(.bht_idx_width_p(bht_idx_width_p),
+      .bp_cnt_sat_bits_p(bp_cnt_sat_bits_p),
+      .bp_n_hist(bp_n_hist)
+    ) bp
+    ( .clk_i(clk_i)
+    , .reset_i(reset_i)
+
+    , .w_v_i(w_v_i)
+    , .idx_w_i(idx_w_i)
+    , .correct_i(correct_i)
+
+    , .r_v_i(r_v_i)
+    , .idx_r_i(idx_r_i)
+    , .predict_o(predict_o)
+);
+
+
+bp_n_hist
 
 end else begin
 
