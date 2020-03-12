@@ -73,7 +73,7 @@ bp_fe_bp_gshare
 );
 
 
-end else if (BP_TYPE == "gshare") begin: branch_predictor_dynamic_gshare
+end else if (BP_TYPE == "gselect") begin: branch_predictor_dynamic_gselect
 
 bp_fe_bp_gselect
     #(.bht_idx_width_p(bht_idx_width_p),
