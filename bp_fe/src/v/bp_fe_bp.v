@@ -4,7 +4,7 @@
  *    * Branch Predictor Wrapper
  *     *
  *     */
-module bp_fe_pb
+module bp_fe_bp
  import bp_fe_pkg::*; 
    #(parameter bht_idx_width_p     = "inv"
    , localparam els_lp             = 2**bht_idx_width_p
