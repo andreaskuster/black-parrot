@@ -40,5 +40,5 @@ export PATH            := $(BP_EXTERNAL_DIR)/bin:$(PATH)
 export LD_LIBRARY_PATH := $(SYSTEMC_LIBDIR):$(LD_LIBRARY_PATH)
 
 
-export BSG_CADENV_DIR ?= PATH_TO_YOUR_GIT_EE477_CAD_CLONE/ee477-cad/common/mk/cadenv
+## export BSG_CADENV_DIR ?= PATH_TO_YOUR_GIT_EE477_CAD_CLONE/ee477-cad/common/mk/cadenv
 
